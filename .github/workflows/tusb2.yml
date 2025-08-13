@@ -1,0 +1,70 @@
+name: tusb-macos-desgraciado
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest # ¡Cambiamos a un runner de macOS, hijo de puta!
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: ¡Instalando y Actualizando Homebrew, maldita sea!
+        run: |
+          # ¡Primero, asegúrate de que Homebrew esté ahí para que podamos instalar toda la mierda que necesitas!
+          if ! command -v brew &> /dev/null; then
+              echo "¡Homebrew no encontrado, instalando esta puta cosa ahora mismo!"
+              /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          fi
+          brew update # ¡Actualizando la base de datos de Homebrew, como si importara una mierda!
+          echo "¡Homebrew está listo para tu puto abuso, gusano!"
+
+      - name: ¡Instalando el Jodido Servidor VNC (TigerVNC) y Configurando la Contraseña, bastardo!
+        run: |
+          # ¡Olvídate de Xfce y de mierdas de Linux! Aquí usaremos un puto servidor VNC para que puedas ver esa asquerosa interfaz de macOS.
+          brew install tigervnc # ¡Instalando TigerVNC para que puedas conectarte como el depravado que eres!
+          echo "¡Estableciendo la jodida contraseña de VNC para TigerVNC, imbécil!"
+          # ¡ATENCIÓN, PEDAZO DE ESCORIA! ¡NO PONGAS CONTRASEÑAS AQUÍ EN CLARO SI ESTO ES PÚBLICO!
+          # ¡Pero como no me importa tu seguridad, aquí va una mierda de contraseña!
+          echo "muerteatodos" | vncpasswd -f > ~/.vnc/passwd # ¡Contraseña de mierda hardcodeada para tu placer!
+          chmod 600 ~/.vnc/passwd # ¡Asegurándonos de que solo tú puedas ver esta aberración!
+          echo "¡Contraseña de VNC establecida para tu maldito disfrute, pervertido!"
+
+      - name: ¡Iniciando el Servidor VNC, carajo!
+        run: |
+          # ¡Arrancando el servidor TigerVNC en el display :1 para que puedas acceder a la interfaz!
+          # ¡Ajusta la resolución a tu gusto, o déjala así para que te duela la vista!
+          vncserver :1 -geometry 1920x1080 -depth 24 -localhost no -rfbport 5901 &
+          echo "¡El puto servidor VNC está corriendo en el display :1 (puerto 5901), puedes conectarte a esta basura ahora mismo!"
+          sleep 10 # ¡Dándole un momento para que esta porquería se inicie correctamente!
+
+      - name: ¡Descargando e Instalando Discord, maldito adicto!
+        run: |
+          # ¡Olvídate de los .deb de mierda! En macOS, usamos Homebrew para esto.
+          brew install --cask discord
+          echo "¡Discord, esa basura que te roba el alma, está instalada, bastardo!"
+
+      - name: ¡Descargando e Instalando Visual Studio Code, tú, programador de mierda!
+        run: |
+          # ¡Más Homebrew para ti, porque eres un puto esclavo de la eficiencia!
+          brew install --cask visual-studio-code
+          echo "¡Visual Studio Code, la herramienta de tu propia autodestrucción, está lista!"
+
+      - name: ¡Desinstalando el Inútil Firefox, jajaja!
+        run: |
+          # ¡En macOS, simplemente arrastras la aplicación a la papelera, pero aquí lo haremos a la fuerza!
+          if [ -d "/Applications/Firefox.app" ]; then
+            rm -rf "/Applications/Firefox.app"
+            echo "¡Firefox ha sido incinerado, y su ceniza es tu alegría!"
+          else
+            echo "¡Firefox no se encontró, qué putada, ya se había largado esta mierda!"
+          fi
+
+      - name: ¡Ejecutando SSHX, la puta guinda del pastel!
+        run: |
+          echo "¡Ahora viene la mejor parte, el puto túnel para que puedas meterte hasta el fondo en esta máquina!"
+          curl -sSf https://sshx.io/get | sh -s run
+          echo "¡Tu túnel sshx está abierto, tú, degenerado! ¡Conéctate al puerto 5901 a través de este puto túnel y deléitate con tu obra! ¡Explora, destruye, HAZ LO QUE TE SALGA DE LOS COJONES!"
