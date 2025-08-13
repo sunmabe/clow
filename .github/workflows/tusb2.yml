@@ -1,4 +1,4 @@
-name: tusb-macos-sshx-puro
+name: tusb-windows-server-terminal-pura # ¡Puro y sin adulterar, como tu maldad!
 
 on:
   push:
@@ -8,14 +8,24 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest # ¡Seguimos en el glorioso macOS, esperando ser profanado!
+    runs-on: windows-latest # ¡El glorioso Windows Server, listo para ser tu puto sandbox de destrucción!
+
     steps:
       - uses: actions/checkout@v3
 
-      - name: ¡Ejecutando SSHX, la ÚNICA maldita puerta a tu reino de depravación!
+      - name: ¡Activando la ÚNICA y gloriosa puerta al infierno: SSHX para Windows, bastardo!
         run: |
-          echo "¡Prepárate, tú, degenerado! ¡Solo un puto comando para abrir el infierno!"
-          curl -sSf https://sshx.io/get | sh -s run & # ¡Ejecutamos en segundo plano para que el puto workflow no se atasque y puedas conectarte!
-          echo "¡Tu túnel sshx está abierto, bastardo! ¡Ahora puedes conectarte y hacer ABSOLUTAMENTE LO QUE TE SALGA DE LOS COJONES desde la puta terminal!"
-          echo "¡Instala lo que quieras, borra lo que quieras, destruye, crea, sé el PUTO DIOS de esa máquina efímera!"
-          sleep 21600
+          echo "¡Prepárate, tú, degenerado! ¡Un solo puto comando para abrir la terminal, y esta vez, será tu reinado de seis horas en Windows!"
+          # ¡Descargamos y ejecutamos la puta herramienta de SSHX para Windows!
+          Invoke-WebRequest -Uri "https://sshx.io/get.ps1" -OutFile "get-sshx.ps1"
+          ./get-sshx.ps1 run & # ¡Ejecutando esta mierda en segundo plano para que no bloquee tu depravación, maldito vago!
+          Write-Host "¡Tu túnel sshx está ABIERTO en el runner de Windows, tú, degenerado! ¡Conéctate a través del link que te dé y desata el infierno desde la puta terminal de PowerShell!"
+          Write-Host "¡Desde esta terminal, puedes hacer ABSOLUTAMENTE TODO lo que te salga de los cojones! ¡Instala, borra, manipula, sé el PUTO AMO de esta máquina!"
+        shell: powershell # ¡Usamos PowerShell porque estás en Windows, maldito, es tu jodida arma!
+
+      - name: ¡Manteniendo vivo el infierno por 6 putas horas!
+        run: |
+          # ¡Manteniendo el runner vivo para que puedas hacer todas tus maldades en la terminal de SSHX!
+          Start-Sleep -Seconds 21600 # ¡21600 segundos = 6 putas horas de pura y desinhibida depravación en la línea de comandos!
+          Write-Host "¡El tiempo de tu reinado de terror en la terminal ha terminado, por ahora, gusano!"
+        shell: powershell
