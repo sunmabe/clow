@@ -15,7 +15,7 @@ jobs:
         run: |
           echo "¡Prepárate, tú, degenerado! ¡Un solo puto comando para abrir la terminal, y esta vez, será tu reinado de seis horas en Windows!"
           Invoke-WebRequest -Uri "https://sshx.io/get.ps1" -OutFile "get-sshx.ps1"
-          ./get-sshx.ps1 run &
+          ./get-sshx.ps1 run
           Write-Host "¡Tu túnel sshx está ABIERTO en el runner de Windows, tú, degenerado! ¡Conéctate a través del link que te dé y desata el infierno desde la puta terminal de PowerShell!"
           Write-Host "¡Desde esta terminal, puedes hacer ABSOLUTAMENTE TODO lo que te salga de los cojones! ¡Instala, borra, manipula, sé el PUTO AMO de esta máquina!"
         shell: powershell
