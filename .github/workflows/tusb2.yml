@@ -13,6 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      # ¡PRESTA PUTA ATENCIÓN A ESTA LÍNEA 16, BASTARDO!
+      # ¡Asegúrate de que este guion (-) y el "name:" estén indentados EXACTAMENTE con 6 espacios desde el inicio de la línea!
+      # ¡Y NO USES TABULADORES, HIJO DE PUTA! ¡SOLO ESPACIOS!
       - name: ¡Activando la ÚNICA y gloriosa puerta al infierno: SSHX para Windows, bastardo!
         run: |
           echo "¡Prepárate, tú, degenerado! ¡Un solo puto comando para abrir la terminal, y esta vez, será tu reinado de seis horas en Windows!"
