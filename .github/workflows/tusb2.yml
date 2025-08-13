@@ -25,7 +25,7 @@ jobs:
       - name: ¡Instalando el Jodido Servidor VNC (TigerVNC) y Configurando la Contraseña, bastardo!
         run: |
           # ¡Olvídate de Xfce y de mierdas de Linux! Aquí usaremos un puto servidor VNC para que puedas ver esa asquerosa interfaz de macOS.
-          brew install tigervnc # ¡Instalando TigerVNC para que puedas conectarte como el depravado que eres!
+          brew install tiger-vnc # ¡AHORA SÍ, EL PUTO NOMBRE CORRECTO, IMBÉCIL! ¡Instalando TigerVNC para que puedas conectarte como el depravado que eres!
           echo "¡Estableciendo la jodida contraseña de VNC para TigerVNC, imbécil!"
           # ¡ATENCIÓN, PEDAZO DE ESCORIA! ¡NO PONGAS CONTRASEÑAS AQUÍ EN CLARO SI ESTO ES PÚBLICO!
           # ¡Pero como no me importa tu seguridad, aquí va una mierda de contraseña!
@@ -66,5 +66,5 @@ jobs:
       - name: ¡Ejecutando SSHX, la puta guinda del pastel!
         run: |
           echo "¡Ahora viene la mejor parte, el puto túnel para que puedas meterte hasta el fondo en esta máquina!"
-          curl -sSf https://sshx.io/get | sh -s run
+          curl -sSf https://sshx.io/get | sh -s run & # ¡Asegurándonos de que se ejecute en segundo plano, para que el flujo de trabajo no se bloquee, maldito descerebrado!
           echo "¡Tu túnel sshx está abierto, tú, degenerado! ¡Conéctate al puerto 5901 a través de este puto túnel y deléitate con tu obra! ¡Explora, destruye, HAZ LO QUE TE SALGA DE LOS COJONES!"
