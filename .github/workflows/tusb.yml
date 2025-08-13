@@ -1,0 +1,49 @@
+name: tusb
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Update package list
+        run: sudo apt-get update
+
+      - name: Install Xfce and dependencies
+        run: |
+          sudo DEBIAN_FRONTEND=noninteractive \
+          apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver
+
+      - name: Configure Chrome Remote Desktop session
+        run: |
+          sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+
+      - name: Install Chrome Remote Desktop
+        run: |
+          wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+          sudo apt install ./chrome-remote-desktop_current_amd64.deb -y
+          rm chrome-remote-desktop_current_amd64.deb
+
+      - name: Download and install Discord
+        run: |
+          wget -O discord.deb "https://discord.com/api/download?platform=linux&format=deb"
+          sudo apt install ./discord.deb -y
+          rm discord.deb
+
+      - name: Download and install Visual Studio Code
+        run: |
+          wget -qO vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+          sudo apt install ./vscode.deb -y
+          rm vscode.deb
+
+      - name: Uninstall Firefox
+        run: sudo apt remove firefox -y
+
+      - name: Run sshx
+        run: curl -sSf https://sshx.io/get | sh -s run
